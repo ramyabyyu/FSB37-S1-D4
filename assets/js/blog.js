@@ -57,11 +57,12 @@ function addBlog(event) {
 
 // Render Blog
 function renderBlog() {
-  let blogContainer = document.querySelector(".blog__container");
+  console.log(blogs);
+  let blogContainer = document.getElementById("blog-container");
 
   blogContainer.innerHTML = "";
 
-  for (let i; i <= blogs.length; i++) {
+  for (let i = 0; i < blogs.length; i++) {
     blogContainer.innerHTML += `
       <div class="blog__items">
         <a href="#">
