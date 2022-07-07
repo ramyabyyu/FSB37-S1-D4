@@ -19,6 +19,8 @@ function preview(event) {
 // Add Blog Logic
 
 let blogs = [];
+const errAlert = document.querySelector(".validation__alert");
+
 function addBlog(event) {
   event.preventDefault();
 
@@ -32,6 +34,16 @@ function addBlog(event) {
     reactjs = document.getElementById("reactjs"),
     nextjs = document.getElementById("nextjs"),
     typescript = document.getElementById("typescript");
+
+  const errMsg = document.getElementById("error__msg");
+
+  if (!projectName || !startDate || !endDate || !description) {
+    errAlert.style.display = "block";
+    errAlert.style.backgroundColor = "#e28484";
+    errAlert.style.color = "#8f2121";
+    errMsg.innerHTML = "All Fields is Required!";
+    return;
+  }
 
   // image
   let image = document.getElementById("upload");
@@ -52,7 +64,16 @@ function addBlog(event) {
 
   blogs.push(blog);
 
+  errAlert.style.display = "block";
+  errAlert.style.backgroundColor = "#82eb82";
+  errAlert.style.color = "#308330";
+  errMsg.innerHTML = "New Blog Created Successfully";
+
   renderBlog();
+}
+
+function closeAlert() {
+  errAlert.style.display = "none";
 }
 
 // Render Blog
@@ -65,7 +86,7 @@ function renderBlog() {
   for (let i = 0; i < blogs.length; i++) {
     blogContainer.innerHTML += `
       <div class="blog__items">
-        <a href="#">
+        <a href="./blog-detail.html">
           <div class="blog__image">
             <img src="${blogs[i].image}" alt="Blog Image" />
           </div>
