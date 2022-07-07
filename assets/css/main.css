@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+:root {
+  --primary-color: #222;
+  --secondary-color: slateblue;
+  --border-radius: 0.5rem;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -19,5 +25,46 @@ section {
   padding: 4rem;
   width: 90%;
   margin: auto;
-  height: 100vh;
+}
+
+/* Nav */
+nav {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: gainsboro;
+  width: 100%;
+  height: 7vh;
+}
+
+.nav__brand a,
+.nav__item a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.nav__links {
+  display: flex;
+  list-style: none;
+}
+
+.nav__item {
+  margin-right: 3rem;
+  padding: 0.5rem;
+}
+
+.nav__end a {
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: var(--primary-color);
+  transition: all 0.5s ease-out;
+}
+
+.nav__end a:hover {
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
 }
